@@ -1,5 +1,5 @@
 from pylab import imshow, show, gray, colorbar, jet
-from numpy import array, empty
+from numpy import array, empty, ones
 from math import *
 
 points = 400
@@ -16,11 +16,12 @@ for ix in range(points+1):
         while abs(z) <= 2.0:
             z = z**2 + x + y * 1j
             count = count + 1
-            if count >= 200:
+            if count >= 400:
+                # M[ix,iy] = 0;
                 break
         M[ix,iy] = count
 
-imshow(M,origin="lower", extent=[-2,2,-2,2],aspect=1)
+imshow(M, origin="lower", extent=[-2,2,-2,2], aspect=1)
 # gray()
 jet()
 colorbar()
